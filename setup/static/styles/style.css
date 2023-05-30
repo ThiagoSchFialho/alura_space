@@ -434,6 +434,7 @@ table {
 }
 
 .btn {
+    width: 90%;
     --bs-btn-padding-x: 0.75rem;
     --bs-btn-padding-y: 0.375rem;
     --bs-btn-font-family: ;
@@ -494,7 +495,7 @@ table {
 
 .form-control {
     display: block;
-    width: 100%;
+    width: 90%;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     font-weight: 400;
