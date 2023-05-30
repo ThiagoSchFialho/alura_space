@@ -1,0 +1,53 @@
+Criar um formulario com base em um model
+
+    Criar formularios com base em um model é super util quando você quer que o usuário do site possa adicionar objetos no seu bando de dados, como um post de alguma coisa por exemplo.
+
+    então, primeiro de tudo, dentro da pasta do app crie o arquivo "forms.py" (se ele ainda não tiver).
+
+    -> importe "forms" e o model que vai servir de base
+        from django import forms
+        from apps.seu_app.models import SeuModel
+
+    -> Agora crie uma classe herdando "forms.ModelForm"
+        class SeuModelForm(forms.ModelForm):
+
+    -> Agora precisamos criar outra classe dentro para passar as informações do formulário:
+    ----------------------------
+    |                          |
+    |                          |
+    |                          |
+    ----------------------------
+    class_form_model
+
+    Esses parametros dentro do atributo "widgets" representam os campo do formulario, e um detalhe para que tudo funcione bem, é que aquelas strings (keys) do dicionario, têm que estar iguais aos nomes dos campos no model
+
+    -> Agora na view instanciamos a classe
+        form = SeuModelForm()
+        return render(request, 'seu_app/pagina.html', {"form": form})
+
+    -> e na página fazemos o formulario com html e python:
+    ----------------------------
+    |                          |
+    |                          |
+    |                          |
+    ----------------------------
+    exemplo_form_pagina
+
+    OBS: além do "action" e do "method" esse formulario também tem o "enctype", isso é necessario porque esse formulário de exemplo tem um campo de envio de imagem
+
+----------
+Salvando o objeto no bando de dados
+
+    Agora que o formulario já está feito, precisamos pegar as informações passadas por ele e salvar como se fosse um objeto no bando de dados.
+
+    E como nos fizemos o formulario com base em um model esse processo é surpreendentemente facil.
+
+    Exemplo da logica necessaria (em views.py):
+    ----------------
+    |              |
+    |              |
+    |              |
+    ----------------
+    exemplo_save_form
+
+------------------------------------------------------------------------------------
